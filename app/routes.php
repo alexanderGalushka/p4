@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+
+Route::get('/get-environment',function() {
+
+    echo "Environment: ".App::environment();
+
+});
