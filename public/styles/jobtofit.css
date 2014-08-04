@@ -1,0 +1,62 @@
+
+		body {
+		  margin: 0;
+		  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		  font-size: 14px;
+		  background: #F7f7E7;
+		}
+
+		.card {
+		  background: #fff;
+		  height: 48px;
+		  margin: 10px 10px;
+		  border-radius: 3px;
+		}
+
+		.toolbar {
+		  background: #91a7ea;
+		  position: relative;
+		  padding: 0.5em;
+		  border-radius: 3px 3px 0 0;
+		}
+
+		.inner {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  bottom: 0;
+		  right: 0;
+		  z-index: -1;
+		}
+
+		body /deep/ core-icon {
+		  fill: #fff;
+		}
+
+		body /deep/ paper-item::shadow core-icon {
+		  fill: #000;
+		}
+
+		core-icon {
+		  fill: #fff;
+		}
+
+		paper-item core-icon {
+		  fill: #000;
+		}
+
+		paper-dialog {
+		  width: 50%;
+		  min-width: 430px;
+		}
+		
+		.flash-message {
+			width:100%;
+			position:absolute;
+			top:0;
+			left:0;
+			background-color:yellow;
+			text-align:center;
+			padding:5px;
+                }
+
