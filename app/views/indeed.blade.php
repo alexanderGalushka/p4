@@ -43,6 +43,7 @@
 				echo $result['educations']['values']['0']['fieldOfStudy'];
 				echo "<br><br>";
 				echo $result['educations']['values']['0']['degree'];
+				echo "<br><br>";
 			}
 	    }			
 		
@@ -67,6 +68,47 @@
 	//
 	}
 	
+	if ( isset($result['positions']['_total']) && $result['positions']['_total'] > 0 )
+	{
+	    if ( $result['positions']['_total'] == 1 )
+		{
+			if ( isset($result['positions']['values']['0']['title']) )
+			{
+				echo $result['positions']['values']['0']['title']; //currentJobTitle 
+				//previousJobTitle = none
+			}
+			else
+			{
+				//currentJobTitle = none
+		        //previousJobTitle = none
+			}
+		}
+		else
+		{
+			if ( isset($result['positions']['values']['0']['title']) )
+			{
+				echo $result['positions']['values']['0']['title']; //currentJobTitle 
+			}
+			else
+			{
+				//currentJobTitle = none
+			}
+			if ( isset($result['positions']['values']['1']['title']) )
+			{
+				echo $result['positions']['values']['1']['title']; //previousJobTitle
+			}
+			else
+			{
+				//previousJobTitle = none
+			}
+			
+		}
+	}
+	else
+	{
+	    //currentJobTitle = none
+		//previousJobTitle = none
+	}
 	
 	//location definitions between LinkedIn and Indeed are a little different 
 	//LinkedIn uses areas, so there is should a conversion table
@@ -120,7 +162,7 @@
 	}
 	catch (Exception $e)
 	{
-		$record = $reader->city('67.134.204.13');
+		$record = $reader->city('67.134.204.13'); //defaults to Cambridge, MA
 	}
 
 	print($record->country->isoCode . "\n"); // 'US'
