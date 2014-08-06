@@ -122,8 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Artdarek\OAuth\OAuthServiceProvider',
+		'Buonzz\GeoIP\Laravel4\ServiceProviders\GeoIPServiceProvider',
 		
-
 	),
 
 	/*
@@ -192,7 +192,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'OAuth'           => 'Artdarek\OAuth\Facade\OAuth',
 		'Linkedin'        => 'League\OAuth2\Client\Provider\LinkedIn',
-
+		'GeoIP'           => 'Buonzz\GeoIP\Laravel4\Facades\GeoIP',
 	),
 
 );

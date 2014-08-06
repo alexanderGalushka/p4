@@ -5,7 +5,7 @@ return array(
         'linkedin'  => array(
         'clientId'  =>  '77nhzwkv9nmeb8',
         'clientSecret'  =>  'vzj3L5mQ0RJRojYJ',
-        'redirectUri'   =>  url('login/linkedin'),
+        'redirectUri'   =>  url('linkedin/login'),
         'scopes' => 'r_emailaddress r_network r_basicprofile r_contactinfo r_fullprofile',
     ),
 );

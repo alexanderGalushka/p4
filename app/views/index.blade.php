@@ -16,7 +16,6 @@
 	
 			</paper-menu-button>
 			<div flex></div>
-			<paper-icon-button icon="search"></paper-icon-button>
 			<paper-menu-button icon="more-vert" halign="right">
 			    <paper-item onclick="GoTo(0)" label="LinkedIn Login"></paper-item>
 				<paper-item onclick="GoTo(1)" label="JobToFit Login"></paper-item>

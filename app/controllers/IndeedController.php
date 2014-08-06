@@ -9,6 +9,9 @@ class IndeedController extends BaseController{
     private static $API_SEARCH_REQUIRED = array("userip", "useragent", array("q", "l"));
     private static $API_JOBS_REQUIRED = array("jobkeys");
 
+	
+	
+	
     public function __construct()
 	{
         $this->publisher = Config::get('linkedin.linkedin.publisher');
@@ -61,5 +64,10 @@ class IndeedController extends BaseController{
         }
         return $args;
     }
-
+    
+	// IndeedController@GetIndeed
+   	public function GetIndeed() 
+	{
+		return View::make('indeed');
+	}  
 }

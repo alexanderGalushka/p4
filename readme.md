@@ -1,5 +1,9 @@
-## Using modified code from https://github.com/indeedlabs/indeed-php/blob/master/src/indeed.php
-for Ineed job search
+## Using modified code from https://github.com/indeedlabs/indeed-php/blob/master/src/indeed.php for Indeed.com API job search
+## Using modified code from https://github.com/msurguy/laravel-linkedin-login for LinkedIn.com API profile data retrieval
+## using geoip locator package https://github.com/maxmind/GeoIP2-php and GeoLite2 data created by MaxMind
+
+
+
 
 ## Laravel PHP Framework
 

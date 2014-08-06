@@ -11,17 +11,13 @@ class JobToFitLoginController extends BaseController
 
 	public function GetLogin()
 	{
-		
 		return View::make('user_login');
-		
 	}
 	
 	public function PostLogin()
 	{
 		
 		$credentials = Input::only('email', 'password');
-		
-		print_r($credentials);
 	
 		if (Auth::attempt($credentials, $remember = true)) {
 			return Redirect::intended('/')->with('flash_message', 'Welcome Back!');
@@ -39,12 +35,11 @@ class JobToFitLoginController extends BaseController
 	
 	public function GetLogout()
 	{
-		
-		# Log out
+		// Logout
 		Auth::logout();
 	
-		# Send them to the homepage
+		// Send them to the homepage
+		Session::flush();
 		return Redirect::to('/');
-
 	}
 }
