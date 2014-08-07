@@ -32,7 +32,7 @@ class LinkedinLoginController extends BaseController
 				{
 					// We got an access token, let's now get the user's details
 					$userDetails = $this->provider->getUserDetails($t);
-					$resource = '/v1/people/~:(firstName,lastName,positions,educations,threeCurrentPositions,threePastPositions,skills,location)';
+					$resource = '/v1/people/~:(firstName,lastName,positions,educations,threeCurrentPositions,threePastPositions,skills,location,email-address)';
 					$params = array('oauth2_access_token' => $t->accessToken, 'format' => 'json');
 					$url = 'https://api.linkedin.com' . $resource . '?' . http_build_query($params);
 					$context = stream_context_create(array('http' => array('method' => 'GET')));
@@ -94,6 +94,10 @@ class LinkedinLoginController extends BaseController
 		}
 		// if ( isset($rawData['location']['country']['code']) ) - GeoIP is used to to locate the user
 		// if ( isset($rawData['location']['name']) ) 
+		if (array_key_exists('emailAddress', $rawData))
+		{
+			$parsedData['email'] = $rawData['emailAddress'];
+		}
 	    
 		//job titles
 		if ( isset($rawData['positions']['_total']) && $rawData['positions']['_total'] > 0 )
@@ -147,6 +151,7 @@ class LinkedinLoginController extends BaseController
 			}
 		}
 		$parsedData['skillSet'] = $skillSet;
+		
 		
 		return $parsedData;
 	}

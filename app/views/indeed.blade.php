@@ -16,13 +16,16 @@
 		<div class='error'>{{ $message }}</div>
 	@endforeach
 		  
-		  
 	<p><?php	
+	$geoIpIdentity = new GeoIpIdentifier();
+	$record = $geoIpIdentity->GetUserLocation();
+	$zipcode = $record->postal->code;
 	$result= Session::get('data');
+	//print_r($result);
 	$skills = $result['skillSet'];	
 	?> </p>	
 	
-    <p style="font-size:24px">Please pick up to 6 relevant skills to the job you would like to search for from the form below:</>
+    <p style="font-size:24px">Please pick up to 6 relevant skills to the job you would like to search for from the form below</>
 
 	<fieldset>
 	<legend>Skill Set provided via LinkedIn</legend>
@@ -41,21 +44,23 @@
 		{{ Form::close() }}	
 	</fieldset>
 
-	
 	{{"<br><br>"}}
 	
+    <p style="font-size:24px">Please modify the information below if needed and confirm</>	
+	
 	<fieldset>
-	<legend>Another form</legend>
+	<legend>Personal Info</legend>
 	{{ Form::open(array('url' => '/indeed', 'class' => 'navbar-form navbar-left')) }}
-				
-		{{ Form::text('jobTitle', 'Mama', array('class' => 'form-control', 'placeholder' => 'Job Title')) }}<br><br>
-	
-		{{ Form::text('country', '', array('class' => 'form-control', 'placeholder' => 'Country')) }}<br><br>
-		
-		{{ Form::text('state', '', array('class' => 'form-control', 'placeholder' => 'State')) }}<br><br>
-		
-		{{ Form::submit('Submit', array('class' => 'btn btn-dafault')) }}
-	
+		{{ Form::text('firstName', $result['firstName'], array('class' => 'form-control')) }} First Name<br><br>	
+		{{ Form::text('lastName', $result['lastName'], array('class' => 'form-control')) }} Last Name<br><br>
+		{{ Form::text('zipcode', $zipcode, array('class' => 'form-control')) }} Current Location ZIP code<br><br>		
+		{{ Form::text('email', $result['email'], array('class' => 'form-control')) }} Email<br><br>
+		{{ Form::text('degree', $result['degree'], array('class' => 'form-control')) }} Degree<br><br>			
+		{{ Form::text('fieldOfStudy', $result['fieldOfStudy'], array('class' => 'form-control')) }} Field of Study<br><br>
+		{{ Form::text('currentJobTitle', $result['currentJobTitle'], array('class' => 'form-control')) }} Current Job Title<br><br>
+		{{ Form::text('previousJobTitle', $result['previousJobTitle'], array('class' => 'form-control')) }} Previous Job Title<br><br>
+		{{"<br>"}}
+		{{ Form::submit('Confirm', array('class' => 'btn btn-dafault')) }}	
 	{{ Form::close() }}
 	</fieldset>
 
