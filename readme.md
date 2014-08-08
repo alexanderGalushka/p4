@@ -1,3 +1,14 @@
+URL:
+
+http://p4.promptdev.com/
+
+This is an alpha revision of the JOByouFIT application, which requires a lot of follow up work to improve
+user's interface (use AJAX, visualization, integrate google.maps API for, etc. ), implement more features:
+search from monsster.com, perform comparison and statistical analysis, show progress in job search, match 
+skills and the jobs for the "smart" search, ability to send out CV and resume to employers directly from
+JOByouFIT.
+
+## Using the Susan's Buck code (modified) as a skeleton for JOByouFIT signup and login
 ## Using modified code from https://github.com/indeedlabs/indeed-php/blob/master/src/indeed.php for Indeed.com API job search
 ## Using modified code from https://github.com/msurguy/laravel-linkedin-login for LinkedIn.com API profile data retrieval
 ## using geoip locator package https://github.com/maxmind/GeoIP2-php and GeoLite2 data created by MaxMind

@@ -26,6 +26,11 @@
 	
 	//echo $y;
 	
+	$y = var_dump($result->toArray());
+	
+	echo "<br><br>";
+	echo $y;
+	
 	print_r($result);
 
 	?> </p>	
