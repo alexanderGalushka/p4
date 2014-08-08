@@ -11,8 +11,6 @@
 |
 */
 
-View::share('loginLinkedinStatus', 'LinkedinLoginController->GetLoginLinkedinStatus');
-
 
 Route::get('/', function()
 {
@@ -26,6 +24,7 @@ Route::get('/get-environment',function() {
 
 });
 
+View::share('loginLinkedinStatus','LinkedinLoginController@CheckLogin'); 
 
 //User's credentials
 Route::get('/linkedin/login', 'LinkedinLoginController@Login');
@@ -43,6 +42,9 @@ Route::get('/logout',  ['before' => 'auth', 'uses' => 'JobToFitLoginController@G
 Route::get('/profile/configure', 'ProfileConfigureController@GetProfile');
 
 Route::post('/profile/configure', 'ProfileConfigureController@SaveProfile');
+
+Route::get('/profile/retrieve', 'ProfileRetrieveController@GetProfile');
+
 
 Route::get('/indeed', 'IndeedController@GetIndeed'); 
 

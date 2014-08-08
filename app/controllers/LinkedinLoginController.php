@@ -41,8 +41,20 @@ class LinkedinLoginController extends BaseController
 					$this->usersDataArray = json_decode($response, true);
 					$data = $this->ProcessLinkedInData ( $this->usersDataArray );
 					$this->loginLinkedinStatus = true;
-					return Redirect::to('/profile/configure')							   
-								   ->with('data',$data);
+					Cache::forever('loginLinkedinStatus', $this->loginLinkedinStatus);
+					
+		
+					$email = UserProfile::where('email', '=', $data['email'])->first();
+                    if ($email == NULL)
+					{
+						return Redirect::to('/profile/configure')							   
+									        ->with('data',$data);
+					}
+					else
+					{
+						return Redirect::to('/profile/retrieve')							   
+									        ->with('data',$data);
+					}
 				} catch (Exception $e)
 				{
 					return 'Unable to get user details';
@@ -55,10 +67,6 @@ class LinkedinLoginController extends BaseController
 		}
 	}
 	
-	public function GetLoginLinkedinStatus()
-	{
-		return $this->loginLinkedinStatus;
-	}
 	
 	static function ProcessLinkedInData ( $rawData )
 	{
@@ -151,4 +159,9 @@ class LinkedinLoginController extends BaseController
 		return $parsedData;
 	}
 
+	//shared variable across the views
+	public function CheckLogin()
+	{		
+		$this->loginLinkedinStatus;
+	}	
 }	

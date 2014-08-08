@@ -11,12 +11,8 @@
 		<div class="inner paper-shadow-bottom-z-1"></div>
 		<div layout horizontal class="toolbar paper-shadow-top-z-1">
 			<div class="inner paper-shadow-bottom-z-1"></div>
-			<paper-menu-button icon="menu" halign="left">
-			     <paper-item label="">JOByouFIT Login</paper-item>
-	
-			</paper-menu-button>
 			<div flex></div>
-			<paper-menu-button icon="more-vert" halign="right">
+			<paper-menu-button icon="menu" halign="right">
 			    <paper-item onclick="GoTo(0)" label="LinkedIn Login"></paper-item>
 				<paper-item onclick="GoTo(1)" label="JOByouFIT Login"></paper-item>
 				<paper-item onclick="GoTo(2)" label="JOByouFIT SignUp"></paper-item>	
@@ -29,6 +25,8 @@
 	
 	<center>
 	<h1>To enjoy JOByouFIT application please login as a LinkedIn user<br>or create a new user with JOByouFIT</h1>
+	{{"<br><br><br>"}}
+	<img src="images/LinkedIn_Indeed.jpg" class="img-rounded" alt="Rounded Image">
 	</center>
 	
 	<paper-dialog heading="About JOByouFIT" transition="paper-dialog-transition-center"> 
