@@ -3,9 +3,10 @@
 // to get "real IP", avoiding proxies,
 // some of the code is taken from: http://stackoverflow.com/questions/13646690/how-to-get-real-ip-from-visitor
 
-include(base_path().'\vendor\autoload.php');
+
+
 use GeoIp2\Database\Reader;
-use MaxMind\Db\Reader\InvalidDatabaseException;
+
 	
 class GeoIpIdentifier
 {
