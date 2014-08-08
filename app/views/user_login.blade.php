@@ -16,7 +16,7 @@
 		<div class='error'>{{ $message }}</div>
 	@endforeach
 	
-	{{ Form::open(array('url' => 'jobtofit/login', 'class' => 'navbar-form navbar-left')) }}
+	{{ Form::open(array('url' => '/login', 'class' => 'navbar-form navbar-left')) }}
 				
 		
 		{{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email')) }}<br><br>
@@ -27,5 +27,6 @@
 	
 	{{ Form::close() }}
 
+	{{$loginLinkedinStatus}}
 	
 @stop

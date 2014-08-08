@@ -18,7 +18,7 @@
   
     <link rel="stylesheet" href="/styles/jobtofit.css" type="text/css">
 	
-	<title>@yield('title','JobToFit')</title>
+	<title>@yield('title','JOByouFIT')</title>
 	
 	@yield('head')
 	
@@ -36,10 +36,10 @@
 		function GoTo(pageNum)
 		{
 			var link = new Array();
-			link[0]='/linkedin/login'; 
-			link[1]='/jobtofit/login';
-			link[2]='/jobtofit/signup';
-			link[3]='/jobtofit/logout';
+			link[0]='linkedin/login'; 
+			link[1]='/login';
+			link[2]='/signup';
+			link[3]='/logout';
 			window.location.assign(link[pageNum]);
 		}
 		

@@ -23,7 +23,7 @@ class JobToFitLoginController extends BaseController
 			return Redirect::intended('/')->with('flash_message', 'Welcome Back!');
 		}
 		else {
-			return Redirect::to('/jobtofit/login')
+			return Redirect::to('/login')
 				->with('flash_message', 'Log in failed; please try again.')
 				->withInput();
 		}
@@ -35,11 +35,13 @@ class JobToFitLoginController extends BaseController
 	
 	public function GetLogout()
 	{
+	
+		//for LinkedIn: 'https://www.linkedin.com/secure/login?session_full_logout=&trk=hb_signout'
 		// Logout
 		Auth::logout();
-	
 		// Send them to the homepage
+		
 		Session::flush();
-		return Redirect::to('/');
+		return Redirect::to('/login');
 	}
 }

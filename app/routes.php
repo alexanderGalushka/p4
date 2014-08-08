@@ -11,20 +11,12 @@
 |
 */
 
-View::share('liStatus', 'LinkedinLoginController@GetLoginLinkedinStatus');
-View::share('outputArray', 'LinkedinLoginController@GetUsersDataArray');
+View::share('loginLinkedinStatus', 'LinkedinLoginController->GetLoginLinkedinStatus');
 
 
 Route::get('/', function()
 {
 	return View::make('index');
-});
-
-
-Route::get('/indeed', function()
-{
-    $data = Session::get('data');
-    return View::make('user')->with('data', $data);
 });
 
 
@@ -34,27 +26,24 @@ Route::get('/get-environment',function() {
 
 });
 
+
 //User's credentials
 Route::get('/linkedin/login', 'LinkedinLoginController@Login');
 
-Route::get('/jobtofit/signup', 'JobToFitSignupController@GetSignup');
+Route::get('/signup', 'JobToFitSignupController@GetSignup');
 
-Route::post('/jobtofit/signup', ['before' => 'csrf', 'uses' => 'JobToFitSignupController@PostSignup']);
+Route::post('/signup', ['before' => 'csrf', 'uses' => 'JobToFitSignupController@PostSignup']);
 
-Route::get('/jobtofit/login', 'JobToFitLoginController@GetLogin');
+Route::get('/login', 'JobToFitLoginController@GetLogin');
 
-Route::post('/jobtofit/login', ['before' => 'csrf', 'uses' => 'JobToFitLoginController@PostLogin'] );
+Route::post('/login', ['before' => 'csrf', 'uses' => 'JobToFitLoginController@PostLogin'] );
 
-//Route::get('/jobtofit/logout', ['before' => 'auth', 'uses' => 'JobToFitLoginController@GetLogout'] );
+Route::get('/logout',  ['before' => 'auth', 'uses' => 'JobToFitLoginController@GetLogout'] );
 
-Route::get('/jobtofit/logout',  'JobToFitLoginController@GetLogout' );
+Route::get('/profile/configure', 'ProfileConfigureController@GetProfile');
 
-Route::get('/login',function() {
+Route::post('/profile/configure', 'ProfileConfigureController@SaveProfile');
 
-    echo "Environment: ".App::environment();
+Route::get('/indeed', 'IndeedController@GetIndeed'); 
 
-});
 
-Route::get('/indeed', 'IndeedController@GetIndeed');
-
-Route::get('/indeed/search', 'IndeedController@search');

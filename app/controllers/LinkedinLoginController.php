@@ -41,7 +41,7 @@ class LinkedinLoginController extends BaseController
 					$this->usersDataArray = json_decode($response, true);
 					$data = $this->ProcessLinkedInData ( $this->usersDataArray );
 					$this->loginLinkedinStatus = true;
-					return Redirect::to('/indeed')							   
+					return Redirect::to('/profile/configure')							   
 								   ->with('data',$data);
 				} catch (Exception $e)
 				{
@@ -55,14 +55,9 @@ class LinkedinLoginController extends BaseController
 		}
 	}
 	
-	public function GetLoginLinkedinStatus ()
+	public function GetLoginLinkedinStatus()
 	{
 		return $this->loginLinkedinStatus;
-	}
-	
-	public function GetUsersDataArray ()
-	{
-		return $this->usersDataArray;
 	}
 	
 	static function ProcessLinkedInData ( $rawData )

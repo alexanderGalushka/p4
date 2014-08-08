@@ -29,7 +29,7 @@ class JobToFitSignupController extends BaseController
 		if($validator->fails()) 
 		{
 			
-			return Redirect::to('/jobtofit/signup')
+			return Redirect::to('/signup')
 				->with('flash_message', 'Sign up failed; please fix the errors listed below.')
 				->withInput()
 				->withErrors($validator);
@@ -46,7 +46,7 @@ class JobToFitSignupController extends BaseController
 		}
 		catch (Exception $e) 
 		{
-			return Redirect::to('/jobtofit/signup')
+			return Redirect::to('/signup')
 				->with('flash_message', 'Sign up failed; please try again.')
 				->withInput();
 		}
