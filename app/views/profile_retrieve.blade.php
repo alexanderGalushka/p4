@@ -22,6 +22,7 @@
 	
 	$result = UserProfile::where('email', '=', $data['email'])->get();
 	
+	$result -> find ('users_profile');
 	print_r($result);
 
 	?> </p>	

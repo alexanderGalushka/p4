@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.5.245.2',
-			'database'  => 'jobtofit',
+			'database'  => 'p4',
 			'username'  => 'adminRZ4zPRk',
 			'password'  => '2ivD6I4Nkdit',
 			'charset'   => 'utf8',
