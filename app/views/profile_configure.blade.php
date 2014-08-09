@@ -43,7 +43,7 @@
     <p style="font-size:24px">Please confirm/modify the information below and <br> click  SAVE  button to store your JOByouFIT profile</>	
 	
 	<legend>Personal Info</legend>
-	{{ Form::open(array('url' => '/indeed', 'class' => 'navbar-form navbar-left')) }}
+
 		{{ Form::text('firstName', $result['firstName'], array('class' => 'form-control')) }} First Name<br><br>	
 		{{ Form::text('lastName', $result['lastName'], array('class' => 'form-control')) }} Last Name<br><br>
 		{{ Form::text('zipcode', $zipcode, array('class' => 'form-control')) }} Current Location ZIP code<br><br>		

@@ -34,9 +34,15 @@ Route::post('/profile/configure', 'ProfileConfigureController@SaveProfile');
 
 Route::get('/profile/retrieve', 'ProfileRetrieveController@GetProfile');
 
+Route::post('/profile/retrieve', 'ProfileRetrieveController@ProcessProceed');
+
+Route::get ('/indeed/search', 'IndeedController@GetIndeedSearch');
+
+Route::post ('/indeed/search', 'IndeedController@SearchJoB');
 
 Route::get('/indeed', 'IndeedController@GetIndeed'); 
 
+Route::get('/indeed/display', 'IndeedController@GetIndeedDisplay');
 
 Route::get('/', function()
 {

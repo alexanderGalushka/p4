@@ -13,7 +13,7 @@
 			<div class="inner paper-shadow-bottom-z-1"></div>
 			<div flex></div>
 			<paper-menu-button icon="menu" halign="right">
-			    <paper-item onclick="GoTo(0)" label="LinkedIn Login"></paper-item>
+			    <paper-item onclick="GoTo(0)" label="LinkedIn Profile"></paper-item>
 				<paper-item onclick="GoTo(1)" label="JOByouFIT Login"></paper-item>
 				<paper-item onclick="GoTo(2)" label="JOByouFIT SignUp"></paper-item>	
 				<paper-item label="Send Feedback"></paper-item>

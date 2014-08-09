@@ -43,21 +43,23 @@ class LinkedinLoginController extends BaseController
 					$this->loginLinkedinStatus = true;
 					Cache::forever('loginLinkedinStatus', $this->loginLinkedinStatus);
 					
-		
-					$email = UserProfile::where('email', '=', $data['email'])->first();
-                    if ($email == NULL)
+		            $linkedin_email = $data['email'];
+					
+					$output = UserProfile::where('email', '=', $linkedin_email)->first();
+                    if ($output == NULL)
 					{
 						return Redirect::to('/profile/configure')							   
 									        ->with('data',$data);
 					}
 					else
 					{
+					    $retrievedData = $this->GetDataFromDB($linkedin_email);
 						return Redirect::to('/profile/retrieve')							   
-									        ->with('data',$data);
+									        ->with('retrievedData',$retrievedData);
 					}
 				} catch (Exception $e)
 				{
-					return 'Unable to get user details';
+					return $e.'   Unable to get user details';
 				}
 
 			} catch (Exception $e)
@@ -157,6 +159,34 @@ class LinkedinLoginController extends BaseController
 		
 		
 		return $parsedData;
+	}
+	
+	static function GetDataFromDB($myEmail)
+	{
+		$profile = UserProfile::where('email', '=', $myEmail)->get();
+		$mult_arr = $profile->toArray();
+	    $arr = $mult_arr['0'];
+		
+		$id_profile = $arr['id'];
+		
+		unset($arr['id'],$arr['updated_at'],$arr['created_at']);
+		
+		$skils = UserSkills::where('user_profile_id', '=', $id_profile)->get();
+		
+		$mult_arr2 = $skils->toArray();
+	    $arr2 = $mult_arr2['0'];
+		
+		unset($arr2['id'],$arr['user_profile_id'],$arr['created_at']);		
+		
+		$result = Array();
+		
+		$result['profile'] = $arr;
+		$result['skills'] = $arr2;
+		$result['id'] = $id_profile;
+		$result['email'] = $myEmail;
+		
+		return $result;
+		
 	}
 
 	//shared variable across the views
