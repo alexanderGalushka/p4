@@ -2,16 +2,17 @@
 
 class IndeedController extends BaseController{
 
-    public function SearchJoB()
+    public function SearchJob()
 	{
 	    $client = new Indeed("9829229899548156"); //publisher number
 				
 	    $zipcode = "01821"; //default
 		$formInput = Input::all();
-		unset($formInput['_token']);
+		$zipcode = $formInput['zipcode'];
+		unset($formInput['_token'], $formInput['zipcode']);
 		
 		$params = Array();
-		$params['q'] = $formInput ;//skills and etc
+		$params['q'] = $formInput['notes'] ;//skills and etc; 'notes' cause it's fetched from textarea
 		$params['l'] = $zipcode;
 		$params['co'] = "US";
 		$params['limit'] = 10;
@@ -24,6 +25,7 @@ class IndeedController extends BaseController{
 		
 	
 		$allJobs = $client->search($params);
+		$allJobs['QUERY'] = $formInput;
 	
 		return Redirect::to('/indeed/display')							   
 					->with('allJobs',$allJobs);

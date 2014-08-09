@@ -38,7 +38,7 @@ Route::post('/profile/retrieve', 'ProfileRetrieveController@ProcessProceed');
 
 Route::get ('/indeed/search', 'IndeedController@GetIndeedSearch');
 
-Route::post ('/indeed/search', 'IndeedController@SearchJoB');
+Route::post ('/indeed/search', 'IndeedController@SearchJob');
 
 Route::get('/indeed', 'IndeedController@GetIndeed'); 
 

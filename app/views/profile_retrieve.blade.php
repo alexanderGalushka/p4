@@ -33,8 +33,9 @@
 	</>
 	{{"<br><br>"}}
 	<legend>Full Profile Information</legend>
-	{{ Form::open(array('url' => '/profile/retrieve', 'class' => 'navbar-form navbar-left')) }} 
-		{{ Form::checkbox('zipcode_check', $profile['zipcode']) }} {{ Form::text('zipcode', $profile['zipcode'], array('class' => 'form-control')) }} Current Location ZIP code<br><br>		
+	{{ Form::open(array('url' => '/profile/retrieve', 'class' => 'navbar-form navbar-left')) }}
+		{{ Form::text('email', $profile['email'], array('class' => 'form-control', 'readonly')) }} <br><br>	
+		{{ Form::text('zipcode', $profile['zipcode'], array('class' => 'form-control')) }} Current Location ZIP code (*Required field)<br><br>		
 		{{ Form::checkbox('degree_check', $profile['degree']) }} {{ Form::text('degree', $profile['degree'], array('class' => 'form-control')) }} Degree<br><br>			
 		{{ Form::checkbox('fieldOfStudy_check', $profile['fieldOfStudy']) }} {{ Form::text('fieldOfStudy', $profile['fieldOfStudy'], array('class' => 'form-control')) }} Field of Study<br><br>
 		{{ Form::checkbox('currentJobTitle_check', $profile['currentJobTitle']) }} {{ Form::text('currentJobTitle', $profile['currentJobTitle'], array('class' => 'form-control')) }} Current Job Title<br><br>

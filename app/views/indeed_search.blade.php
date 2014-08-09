@@ -14,6 +14,8 @@
 			  
 	<?php	
 	$result= Session::get('indeedArray');
+	$zipcode = $result['zipcode'];
+	unset($result['zipcode']);
 	$searchString = "";
 	for ($i=0; $i<count($result); $i++)
 	{
@@ -30,7 +32,8 @@
 	?>
 	
 	{{ Form::open(array('url' => '/indeed/search', 'method' => 'POST', 'class' => 'navbar-form navbar-left')) }}		
-
+		{{ Form::text('zipcode', $zipcode, array('class' => 'form-control')) }} 
+		{{"<br>"}}
 		{{ Form::textarea('notes',$searchString, ['size' => '85x5']) }}	
 		{{"<br>"}}
 		{{ Form::submit('FIND JOB', array('class' => 'btn btn-dafault')) }}	
